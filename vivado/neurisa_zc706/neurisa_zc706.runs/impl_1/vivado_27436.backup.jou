@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Tue Mar 24 21:17:35 2026
+# Process ID         : 27436
+# Current directory  : C:/Users/Anuj/ChipMonk/vivado/neurisa_zc706/neurisa_zc706.runs/impl_1
+# Command line       : vivado.exe -log neurisa_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source neurisa_top.tcl -notrace
+# Log file           : C:/Users/Anuj/ChipMonk/vivado/neurisa_zc706/neurisa_zc706.runs/impl_1/neurisa_top.vdi
+# Journal file       : C:/Users/Anuj/ChipMonk/vivado/neurisa_zc706/neurisa_zc706.runs/impl_1\vivado.jou
+# Running On         : LAPTOP-5CR866K8
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) Ultra 5 125H
+# CPU Frequency      : 2995 MHz
+# CPU Physical cores : 14
+# CPU Logical cores  : 18
+# Host memory        : 16573 MB
+# Swap memory        : 16573 MB
+# Total Virtual      : 33146 MB
+# Available Virtual  : 11248 MB
+#-----------------------------------------------------------
+source neurisa_top.tcl -notrace
