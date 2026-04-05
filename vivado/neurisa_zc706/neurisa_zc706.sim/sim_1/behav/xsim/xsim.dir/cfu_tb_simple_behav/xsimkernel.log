@@ -1,7 +1,0 @@
-Running: xsim.dir/cfu_tb_simple_behav/xsimk.exe -simmode gui -wdb cfu_tb_simple_behav.wdb -simrunnum 0 -socket 57659
-Design successfully loaded
-Design Loading Memory Usage: 11316 KB (Peak: 11316 KB)
-Design Loading CPU Usage: 62 ms
-Simulation completed
-Simulation Memory Usage: 12464 KB (Peak: 12464 KB)
-Simulation CPU Usage: 171 ms

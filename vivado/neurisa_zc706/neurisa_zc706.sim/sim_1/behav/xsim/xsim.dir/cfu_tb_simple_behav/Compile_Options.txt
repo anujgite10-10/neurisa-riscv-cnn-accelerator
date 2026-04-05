@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "neorv32" -L "secureip" --snapshot "cfu_tb_simple_behav" "xil_defaultlib.cfu_tb_simple" -log "elaborate.log" 
