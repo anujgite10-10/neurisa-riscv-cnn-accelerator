@@ -1,0 +1,11 @@
+0.7
+2020.2
+May 22 2025
+00:13:55
+C:/Users/Anuj/ChipMonk/rtl/neurisa/cnn_activation.vhd,1774015913,vhdl2008,C:/Users/Anuj/ChipMonk/rtl/neurisa/neorv32_cfs_cnn.vhd,,,cnn_activation,,,,,,,,
+C:/Users/Anuj/ChipMonk/rtl/neurisa/cnn_controller.vhd,1774009450,vhdl2008,C:/Users/Anuj/ChipMonk/rtl/neurisa/neorv32_cfs_cnn.vhd,,,cnn_controller,,,,,,,,
+C:/Users/Anuj/ChipMonk/rtl/neurisa/cnn_conv_engine.vhd,1774009347,vhdl2008,C:/Users/Anuj/ChipMonk/rtl/neurisa/neorv32_cfs_cnn.vhd,,,cnn_conv_engine,,,,,,,,
+C:/Users/Anuj/ChipMonk/rtl/neurisa/cnn_pool_engine.vhd,1774009386,vhdl2008,C:/Users/Anuj/ChipMonk/rtl/neurisa/neorv32_cfs_cnn.vhd,,,cnn_pool_engine,,,,,,,,
+C:/Users/Anuj/ChipMonk/rtl/neurisa/neorv32_cfs_cnn.vhd,1774009515,vhdl2008,C:/Users/Anuj/ChipMonk/tb/sim/cnn_tb_simple.vhd,,,neorv32_cfs_cnn,,,,,,,,
+C:/Users/Anuj/ChipMonk/tb/sim/cfu_tb_simple.vhd,1774078768,vhdl2008,,,,cfu_tb_simple,,,,,,,,
+C:/Users/Anuj/ChipMonk/tb/sim/cnn_tb_simple.vhd,1774079046,vhdl2008,,,,cnn_tb_simple,,,,,,,,

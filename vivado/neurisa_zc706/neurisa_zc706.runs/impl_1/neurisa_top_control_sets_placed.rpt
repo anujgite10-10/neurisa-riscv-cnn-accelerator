@@ -1,0 +1,142 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Tue Mar 24 21:32:52 2026
+| Host         : LAPTOP-5CR866K8 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file neurisa_top_control_sets_placed.rpt
+| Design       : neurisa_top
+| Device       : xc7z045
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    64 |
+|    Minimum number of control sets                        |    64 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   104 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    64 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     6 |
+| >= 10 to < 12      |     4 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    45 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              27 |            9 |
+| No           | No                    | Yes                    |             652 |          294 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |            1665 |          705 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
+|                          Clock Signal                          |                                                                        Enable Signal                                                                        |                            Set/Reset Signal                            | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
+| ~neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o |                                                                                                                                                             |                                                                        |                1 |              1 |         1.00 |
+|  clk_50mhz                                                     | neorv32_inst/soc_generators.neorv32_sys_clock_inst/ctrl_reg[prsc][1][0]                                                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                1 |              1 |         1.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/rx_engine[bitcnt][3]_i_1_n_0                                                                | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |              4 |         2.00 |
+|  clk_50mhz                                                     |                                                                                                                                                             | neorv32_inst/soc_generators.neorv32_sys_reset_inst/sreg_sys[3]_i_1_n_0 |                2 |              5 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/neorv32_bus_gateway_inst/keeper[cnt][4]_i_1_n_0                                                                                                | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |              5 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[data][1]_0[0]                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |              5 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[addr][3]_3[0]                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |              8 |         4.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_7[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                4 |              8 |         2.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_6[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                4 |              8 |         2.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/w_pnt_reg[0][0]                                                                      | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                1 |              8 |         8.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/rx_engine_fifo_inst/we                                                                      | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                1 |              8 |         8.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/rx_engine[sreg][8]_i_1_n_0                                                                  | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |              9 |         4.50 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_5[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                2 |             10 |         5.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/rx_engine[baudcnt][9]_i_1_n_0                                                               | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                4 |             10 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/tx_engine[baudcnt][9]_i_1_n_0                                                               | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                4 |             10 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/FSM_onehot_exec[state][10]_i_1_n_0                                               | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                6 |             11 |         1.83 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/prefetch_buffer[1].ipb_inst/FSM_onehot_exec_reg[state][3][0]                    | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                5 |             12 |         2.40 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_uart0_enabled.neorv32_uart0_inst/tx_engine[bitcnt][3]_i_1_n_0                                                                | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                4 |             13 |         3.25 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/ctrl_reg[csr_we]_0[0]                                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                8 |             15 |         1.88 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/csr[mie_firq]                                                                    | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                6 |             19 |         3.17 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/ctrl[prsc]                                                                           | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                7 |             20 |         2.86 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_core_bus_switch_inst/we_i                                                                                          |                                                                        |                3 |             24 |         8.00 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_core_bus_switch_inst/ipb_reg[we][0]                                                                                |                                                                        |                3 |             24 |         8.00 |
+|  clk_50mhz                                                     |                                                                                                                                                             |                                                                        |                8 |             26 |         3.25 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/csr[mtvec][31]_i_1_n_0                                                           | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             31 |         2.38 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_frontend_inst/fetch[addr][31]_i_1_n_0                                                         | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |                9 |             31 |         3.44 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/csr_reg[mepc]0                                                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               12 |             31 |         2.58 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec[pc2][31]_i_1_n_0                                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               15 |             31 |         2.07 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_3[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               19 |             32 |         1.68 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_alu_inst/neorv32_cpu_alu_cfu_enabled.neorv32_cpu_alu_cfu_inst/dot_accum[31]_i_1_n_0           | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               10 |             32 |         3.20 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_alu_inst/neorv32_cpu_alu_cfu_enabled.neorv32_cpu_alu_cfu_inst/mac_pipe_reg[stage1_valid_n_0_] | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               12 |             32 |         2.67 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/cnn_cfg_mem[15]_21                                                               | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               11 |             32 |         2.91 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/csr[mscratch][31]_i_1_n_0                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             32 |         2.46 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][21]_rep__0_2[0]                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               15 |             32 |         2.13 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_2[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               12 |             32 |         2.67 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_4[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               10 |             32 |         3.20 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_6[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               14 |             32 |         2.29 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_5[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               17 |             32 |         1.88 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][21]_rep__0_3[0]                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               18 |             32 |         1.78 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][21]_rep__0_1[0]                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               12 |             32 |         2.67 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_0                                           | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               18 |             32 |         1.78 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][21]_rep__0_4[0]                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             32 |         2.46 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_3[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               19 |             32 |         1.68 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_0[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               15 |             32 |         2.13 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][22]_2[0]                                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             32 |         2.46 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][21]_rep__0_5[0]                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               20 |             32 |         1.60 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][20]_rep_1[0]                                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               15 |             32 |         2.13 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][22]_1[0]                                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               14 |             32 |         2.29 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_reg[ir][22]_3[0]                                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             32 |         2.46 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/E[0]                                                                                 | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               12 |             32 |         2.67 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[addr][3]_0[0]                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               13 |             32 |         2.46 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[addr][3]_1[0]                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               16 |             32 |         2.00 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[addr][3]_4[0]                                   | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               14 |             32 |         2.29 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_2[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               17 |             32 |         1.88 |
+|  clk_50mhz                                                     | neorv32_inst/io_system.neorv32_bus_io_switch_inst/neorv32_bus_reg_inst/request_reg_enabled.device_req_o_reg[rw]_4[0]                                        | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               17 |             32 |         1.88 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_alu_inst/neorv32_cpu_alu_shifter_inst/serial[sreg]                                            | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               17 |             37 |         2.18 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_lsu_inst/req_reg[addr][28]_0[0]                                                               | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               16 |             52 |         3.25 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/FSM_onehot_ctrl_reg[state][0][0]                                                 | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               28 |             64 |         2.29 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_alu_inst/neorv32_cpu_alu_muldiv_enabled.neorv32_cpu_alu_muldiv_inst/div[rema]                 | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               24 |             64 |         2.67 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/E[0]                                                                             | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               21 |             65 |         3.10 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/Q[1]                                                                             | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               28 |             70 |         2.50 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/csr[mcause]                                                                      | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               31 |             70 |         2.26 |
+|  clk_50mhz                                                     | neorv32_inst/core_complex_gen[0].neorv32_cpu_inst/neorv32_cpu_control_inst/exec_nxt[ir]                                                                     | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |               32 |             71 |         2.22 |
+|  clk_50mhz                                                     |                                                                                                                                                             | neorv32_inst/soc_generators.neorv32_sys_reset_inst/rstn_sys_o_reg_0    |              292 |            647 |         2.22 |
++----------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

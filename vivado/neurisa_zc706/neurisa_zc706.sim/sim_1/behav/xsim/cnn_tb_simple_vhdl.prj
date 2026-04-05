@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl2008 xil_defaultlib  \
+"../../../../../../rtl/neurisa/neorv32_cfs_cnn.vhd" \
+"../../../../../../tb/sim/cnn_tb_simple.vhd" \
+
+# Do not sort compile order
+nosort
