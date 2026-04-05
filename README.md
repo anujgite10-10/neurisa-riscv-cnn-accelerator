@@ -3,7 +3,6 @@
 [![RISC-V](https://img.shields.io/badge/RISC--V-RV32IMC%2BXcfu-blue)](https://riscv.org/)
 [![NEORV32](https://img.shields.io/badge/NEORV32-Xcfu%20Extension-green)](https://github.com/stnolting/neorv32)
 [![FPGA](https://img.shields.io/badge/FPGA-Zynq--7000%20ZC--706-orange)](https://www.xilinx.com/products/boards-and-kits/ek-z7-zc706-g.html)
-[![License](https://img.shields.io/badge/License-BSD--3--Clause-green)](LICENSE)
 
 NeurISA extends the NEORV32 RISC-V soft-core processor with custom ISA extensions for hardware-accelerated CNN and ML inference. The implementation combines 12+ custom SIMD instructions with a dedicated CNN acceleration engine targeting the Zynq-7000 ZC706 FPGA board.
 
@@ -261,6 +260,8 @@ vivado_sim -source vivado/neurisa_zc706/neurisa_zc706.sim/sim_1/behav/compile.f
 
 ## Zynq-7000 ZC706 FPGA Board
 
+![ZC706 FPGA Board](docs/ZC706.jpeg)
+
 ### Device Specifications
 
 | Specification | Value |
@@ -415,7 +416,7 @@ Key demonstration points:
 
 ## License
 
-BSD-3-Clause. See [LICENSE](LICENSE) for details.
+BSD-3-Clause.
 
 ---
 
