@@ -21,23 +21,23 @@ NeurISA extends the NEORV32 RISC-V soft-core processor with custom ISA extension
 
 NeurISA extends NEORV32 with three complementary acceleration mechanisms:
 
-1. **Custom SIMD Instructions (CFU)** — 12+ packed INT8 operations
+1. **Custom SIMD Instructions (CFU)** - 12+ packed INT8 operations
    - Multiply-accumulate (VMAC), dot product (VDOT)
    - Element-wise operations (ReLU, pooling, quantization)
    - Latency: 1-2 cycles per instruction
 
-2. **Hardware CNN Engine (CFS)** — Dedicated accelerator substrate
+2. **Hardware CNN Engine (CFS)** - Dedicated accelerator substrate
    - 3×3 convolution unit with 9 parallel INT8 MACs
    - Configurable ReLU or Leaky ReLU activation
    - 2×2 max/average pooling
    - AXI-Lite slave interface for software control
 
-3. **Software Runtime** — Three execution modes
+3. **Software Runtime** - Three execution modes
    - Pure software (reference, portable)
    - CFU-accelerated (instruction-level speedup)
    - Hardware-accelerated (subsystem-level speedup)
 
-4. **MNIST Inference Demo** — Complete end-to-end example
+4. **MNIST Inference Demo** - Complete end-to-end example
    - Real-time digit recognition
    - Comparative benchmarking
    - UART bootloader interface
