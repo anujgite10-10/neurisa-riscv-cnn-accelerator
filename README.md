@@ -42,32 +42,75 @@ NeurISA extends NEORV32 with three complementary acceleration mechanisms:
    - Comparative benchmarking
    - UART bootloader interface
 
-### System Block Diagram
+### System Architecture Diagram
 
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TB
+    subgraph ZC706["Zynq-7000 ZC706 FPGA Board"]
+        direction TB
+        subgraph SOC["NEORV32 SoC"]
+            IF["Instruction<br/>Fetch"] -->|"instr"| DEC["Decode &<br/>Control"]
+            DEC -->|"alu_op"| ALU["ALU / Execution<br/>+ NeurISA CFU"]
+            DEC -->|"ctrl"| REG["Register File<br/>32x32b"]
+            ALU -->|"rs1,rs2 / rd"| REG
+            ALU -->|"addr/data"| LSU["Load-Store<br/>Unit"]
+            LSU <-->|"Wishbone"| MEM["IMEM · DMEM<br/>64KB each"]
+            LSU <-->|"Wishbone"| UART["UART<br/>19200 baud"]
+            LSU <-->|"Wishbone"| GPIO["GPIO<br/>8 I/O"]
+        end
+        subgraph ACC["CNN Accelerator Engine"]
+            AXI["AXI-Lite<br/>Interface"] -->|"config"| CTRL["Layer Controller<br/>FSM"]
+            CTRL -->|"weights/data"| CONV["3x3 Convolution<br/>9 Parallel INT8 MACs"]
+            CONV -->|"feature map"| ACT["ReLU / Leaky ReLU<br/>Activation"]
+            ACT -->|"activated"| POOL["2x2 Max/Avg<br/>Pooling"]
+            CTRL --> PERF["Performance<br/>Counters"]
+        end
+        LSU <-->|"CFS Bridge"| AXI
+    end
+
+    style IF fill:#2d2d2d,stroke:#888,color:#fff
+    style DEC fill:#2d2d2d,stroke:#888,color:#fff
+    style ALU fill:#2d2d2d,stroke:#888,color:#fff
+    style REG fill:#2d2d2d,stroke:#888,color:#fff
+    style LSU fill:#2d2d2d,stroke:#888,color:#fff
+    style MEM fill:#2d2d2d,stroke:#888,color:#fff
+    style UART fill:#2d2d2d,stroke:#888,color:#fff
+    style GPIO fill:#2d2d2d,stroke:#888,color:#fff
+    style AXI fill:#2d2d2d,stroke:#888,color:#fff
+    style CTRL fill:#2d2d2d,stroke:#888,color:#fff
+    style CONV fill:#2d2d2d,stroke:#888,color:#fff
+    style ACT fill:#2d2d2d,stroke:#888,color:#fff
+    style POOL fill:#2d2d2d,stroke:#888,color:#fff
+    style PERF fill:#2d2d2d,stroke:#888,color:#fff
 ```
-┌──────────────────────────────────────────────────┐
-│                  NEORV32 SoC                     │
-│  ┌───────────────┐  ┌───────────────────────┐    │
-│  │  RV32IMC CPU  │  │  CNN Accelerator      │    │
-│  │  ┌──────────┐ │  │  ┌─────┐ ┌────┐       │    │
-│  │  │  NeurISA │ │  │  │Conv │→│ReLU│→Pool  │    │
-│  │  │   CFU    │ │  │  │3×3  │ │    │ 2×2   │    │
-│  │  │ (12 inst)│ │  │  │9MAC │ │    │       │    │
-│  │  └──────────┘ │  │  └─────┘ └────┘       │    │
-│  └───────────────┘  └───────────────────────┘    │
-│  ├─ UART Interface   ├─ AXI-Lite Config          │
-│  ├─ GPIO (8 I/O)     ├─ Performance Counters     │
-│  ├─ Boot ROM (64K)   ├─ Layer Controller FSM     │
-│  ├─ Instruction Mem  ├─ 3×3 PE Array (9 MACs)    │
-│  └─ Data Mem (64K)   └─ Pooling Engine           │
-└──────────────────────────────────────────────────┘
-         ↓
-    ┌─────────────┐
-    │ Zynq-7000   │
-    │ ZC-706      │
-    │ FPGA Board  │
-    └─────────────┘
+
+### CNN Inference Pipeline
+
+```mermaid
+%%{init: {'theme': 'dark'}}%%
+graph TB
+    IN["Input Image<br/>28x28 INT8"] -->|"pixels"| C1["Conv 3x3<br/>Layer 1<br/>~12 cyc/px"]
+    C1 -->|"feature map"| R1["ReLU<br/>1 cycle"]
+    R1 -->|"activated"| P1["MaxPool 2x2<br/>2 cycles"]
+    P1 -->|"downsampled"| C2["Conv 3x3<br/>Layer 2"]
+    C2 -->|"feature map"| R2["ReLU<br/>1 cycle"]
+    R2 -->|"activated"| P2["MaxPool 2x2<br/>2 cycles"]
+    P2 -->|"flattened"| FC["Dense Layer<br/>128 → 10<br/>~256 cycles"]
+    FC -->|"softmax"| OUT["Output<br/>Digit 0-9"]
+
+    style IN fill:#2d2d2d,stroke:#888,color:#fff
+    style C1 fill:#2d2d2d,stroke:#888,color:#fff
+    style R1 fill:#2d2d2d,stroke:#888,color:#fff
+    style P1 fill:#2d2d2d,stroke:#888,color:#fff
+    style C2 fill:#2d2d2d,stroke:#888,color:#fff
+    style R2 fill:#2d2d2d,stroke:#888,color:#fff
+    style P2 fill:#2d2d2d,stroke:#888,color:#fff
+    style FC fill:#2d2d2d,stroke:#888,color:#fff
+    style OUT fill:#2d2d2d,stroke:#888,color:#fff
 ```
+
+> **13.3× speedup** — LeNet-5 in ~150K cycles (HW) vs ~2M cycles (SW)
 
 ## Custom Instructions (Xcfu Extension)
 
